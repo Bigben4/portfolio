@@ -95,15 +95,14 @@ body{
 }
 
 .main .textbox h1{
-    font-size:33px;
+    font-size:4em;
     font-weight: 600;
-    font-style: oblique;
 }
 .main .textbox h2{
-    width:100%;
+    width:50%;
     display: flex;
     align-items:center;
-    justify-content:center;   
+    justify-content:space-evenly;   
 }
 
 .main .textbox h2 span{
@@ -114,21 +113,23 @@ body{
 .main .textbox h2 span::after{
     content:"";
     position: absolute;
-    right:0;
+    top:0;
+    left:0;
+    border-right: 1px solid white;
     animation-delay:2s;
     animation: text 3s  ease-in-out infinite;
+    animation-direction: alternate;
+    white-space: nowrap;
 }
 
 @keyframes text{
     0%{
         content: "Software Engineering";
-        border-right:1px solid white;
+        
     }50%{
         content:"Web Developer";
-        border-right:1px solid white;
     }100%{
         content:"mobile Developer";
-        border-right:1px solid white;
     }  
 }
 
@@ -138,6 +139,7 @@ body{
     line-height:1em;
     font-size:1.5em;
     font-weight: 500;
+    width: 80%;
 }
 
 .main .textbox .icons{
@@ -158,6 +160,11 @@ body{
     color: white;
     margin: 0 15px;
     cursor: pointer;
+}
+
+.main .textbox .icons img:hover{
+    transform: scale(1.2);
+    transition: all 0.3s ease-in-out;
 }
 
 .main .pictures{
