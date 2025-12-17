@@ -97,12 +97,14 @@ body{
 .main .textbox h1{
     font-size:4em;
     font-weight: 600;
+    color: grey;
 }
 .main .textbox h2{
     width:50%;
     display: flex;
     align-items:center;
-    justify-content:space-evenly;   
+    justify-content:start;
+    gap:20px;   
 }
 
 .main .textbox h2 span{
@@ -113,6 +115,8 @@ body{
 .main .textbox h2 span::after{
     content:"";
     position: absolute;
+    color:white;
+    font-size: 1em;
     top:0;
     left:0;
     border-right: 1px solid white;
@@ -135,10 +139,9 @@ body{
 
 .main .textbox .text{
     text-align: center;
-    font-size:2em;
+    font-size:1em;
     line-height:1em;
-    font-size:1.5em;
-    font-weight: 500;
+    font-weight:500;
     width: 80%;
 }
 
@@ -148,25 +151,60 @@ body{
     height:5vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content:start;
     margin-top:20px;
 }
 .main .textbox .icons img{
-    width:40px;
-    height:40px;
+    width:50px;
+    height:50px;
     border-radius:50px;
     object-fit: cover;
     object-position: center;
     color: white;
     margin: 0 15px;
+    border: 1px solid white;
     cursor: pointer;
 }
 
 .main .textbox .icons img:hover{
+    background-color: grey;
+    color: white;
     transform: scale(1.2);
     transition: all 0.3s ease-in-out;
 }
 
+.call-to-action{
+    width:80%;
+    height:7vh;
+    display: flex;
+    align-items: center;
+    justify-content:start;
+    gap:20px;
+    padding:10px;
+    margin-top:20px;
+}
+.call-to-action .hirebtn{
+    width:30%;
+    height:50px;
+    border: 1px solid white;
+    border-radius: 30px;
+    background-color: black;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+}
+.call-to-action  .Contact-btn{
+    width:30%;
+    height:50px;
+    border: 1px solid black;
+    border-radius: 30px;
+    background-color:white;
+    color:black;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+}
 .main .pictures{
      background-color: bisque;
     width:50%;
