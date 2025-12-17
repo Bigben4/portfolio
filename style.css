@@ -1,0 +1,146 @@
+
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family:serif,sans-serif;
+}
+
+body{
+    width:100vw;
+    height:100vh;
+    background-color:black;
+    color: white;
+}
+
+
+/* navbar sections */
+.navbar{
+    width:100vw;
+    height:15vh;
+    background-color:black;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius:50px;
+    /* padding:50px; */
+    position: fixed;
+    z-index:1;
+    border: 1px solid white;
+}
+.menu{
+    width:50%;
+    height:100%;
+    display: flex;
+    list-style:none;
+    flex-direction: row;
+    align-items: center;
+    justify-content:center;
+}
+
+.menu ul{
+    width:100%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    list-style-type:none;
+}
+
+.menu ul li{
+    font-weight: 800;
+    font-size:22px;
+    cursor: pointer;
+}
+
+.main ul li:hover{
+    color:red;
+    
+}
+
+.navbar .logo{
+    font-size: 50px;
+    font-weight: 900;
+    width:50%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content:start;
+    margin-left:40px;
+}
+
+/* body with three sections */
+
+.main{
+    width:100%;
+    height: 100vh;
+    background-color:black;
+    display: flex;
+    align-items:end;
+    justify-content:space-between;
+    flex-direction:row;
+}
+
+.main .textbox{
+    width:50%;
+    height: 84%; 
+    background-color:black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height:3.25rem;
+    text-align: center;
+}
+
+.main .textbox h1{
+    font-size:33px;
+    font-weight: 600;
+    font-style: oblique;
+}
+.main .textbox h2{
+    width:100%;
+    display: flex;
+    align-items:center;
+    justify-content:center;   
+}
+
+.main .textbox h2 span{
+    width: 50%;
+    height:100%;
+    position: relative;
+}
+.main .textbox h2 span::after{
+    content:"";
+    position: absolute;
+    right:0;
+    animation-delay:2s;
+    animation: text 3s  ease-in-out infinite;
+}
+
+@keyframes text{
+    0%{
+        content: "Software Engineering";
+        border-right:1px solid white;
+    }50%{
+        content:"Web Developer";
+        border-right:1px solid white;
+    }100%{
+        content:"mobile Developer";
+        border-right:1px solid white;
+    }
+
+    
+}
+
+.main .pictures{
+     background-color: bisque;
+    width:50%;
+    height: 84%; 
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
