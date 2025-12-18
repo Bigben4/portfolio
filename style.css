@@ -100,7 +100,9 @@ body{
     color: grey;
 }
 .main .textbox h2{
-    width:50%;
+    width:80%;
+    font-size: 3em;
+    text-align: center;
     display: flex;
     align-items:center;
     justify-content:start;
