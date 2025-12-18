@@ -98,6 +98,16 @@ body{
     font-size:4em;
     font-weight: 600;
     color: grey;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-indent:5px;
+}
+
+.main .textbox h1 .name{
+    background:linear-gradient(white,grey,black);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color: transparent;
 }
 .main .textbox h2{
     width:80%;
@@ -208,11 +218,28 @@ body{
     cursor: pointer;
 }
 .main .pictures{
-     background-color: bisque;
     width:50%;
     height: 84%; 
     display: flex;
     align-items: center;
     justify-content: center; 
 }
+.main .pictures .photo{
+     background-color:grey;
+     height: 500px;
+     width:500px;
+     border-radius:300px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+.main .pictures .photo img{
+    background-color:transparent;
+    height:490px;
+    width: 490px;
+    border-radius:300px;
+    object-fit: cover;
+    object-position: center;
+    
 
+}
