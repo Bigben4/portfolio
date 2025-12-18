@@ -49,16 +49,30 @@ body{
     list-style-type:none;
 }
 
-.menu ul li{
+.menu ul li a{
     font-weight: 800;
     font-size:22px;
+    text-decoration:none;
+    color: white;
     cursor: pointer;
+    width:max-content;
+    position: relative;
+}
+li a::after{
+    content:"";
+    position: absolute;
+    bottom:0;
+    left:0;
+    height:2px;
+    width:100%;
+    transition: width 1s ease-in-out;
+    background:linear-gradient(white,grey,white);
+}
+ ul li a:hover::after{
+    width:0%;
 }
 
-.main ul li:hover{
-    color:red;
-    
-}
+
 
 .navbar .logo{
     font-size: 50px;
@@ -69,7 +83,7 @@ body{
     align-items: center;
     justify-content:start;
     margin-left:40px;
-    animation:logo 1.2s ease-out forwards; 
+    animation:logo 5s ease-out forwards infinite; 
 }
 @keyframes logo {
     from{
