@@ -118,7 +118,7 @@ li a::after{
 .main .textbox{
     width:50%;
     height: 84%; 
-    background-color:black;
+    background-color:transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -134,6 +134,7 @@ li a::after{
     align-items: center;
     justify-content: center;
     text-indent:5px;
+    background-color: transparent;
 }
 
 .main .textbox h1 .name{
@@ -255,6 +256,7 @@ li a::after{
     display: flex;
     align-items: center;
     justify-content: center; 
+    background-color: transparent;
 }
 .main .pictures .photo{
      background-color:grey;
