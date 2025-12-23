@@ -65,7 +65,7 @@ function animate() {
     torus.rotation.z += 0.01;
 
     controll.update();
-    
+
     renderer.render(scene, camera);
 }
 
