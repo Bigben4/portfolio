@@ -94,3 +94,30 @@ new THREE.BoxGeometry(3,3,3),
 new THREE.MeshBasicMaterial({ map: devtexture})
 )
 scene.add(dev);
+
+const moonTexture = new THREE.TextureLoader().load('icons/integration_instructions_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg');
+const  moon = new THREE.Mesh(
+    new THREE.BoxGeometry(3,3,3),
+    new THREE.MeshStandardMaterial({map: moonTexture})
+)
+scene.add(moon);
+
+moon.position.z = 30;
+moon.position.setX(-10);
+
+
+// move camera while scrolling page
+function movecamera(){
+     const t = document.body.getBoundingClientRect().top;
+        moon.rotation.x += 0.05;
+        moon.rotation.y += 0.075;
+        moon.rotation.z += 0.05;
+        dev.rotation.y += 0.01;
+        dev.rotation.z += 0.01;
+        
+        camera.position.z = t * -0.01;
+        camera.position.x = t * -0.0002;
+        camera.position.y = t * -0.0002;
+};
+
+document.body.onscroll = movecamera;
