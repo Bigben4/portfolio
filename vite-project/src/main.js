@@ -1,4 +1,3 @@
-
 import './style.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
@@ -33,7 +32,6 @@ scene.add(torus);
 // adding light
 const pointLight = new THREE.PointLight(0xffffff, 1);
 pointLight.position.set(5, 5, 5);
-
 const ambientLight = new THREE.AmbientLight(0xffffff, 1); // soft ambient light
 scene.add( pointLight, ambientLight);
  
@@ -45,7 +43,7 @@ scene.add(lighthelper, gridhelper)
 
 
 // orbit controls
-const controll = new OrbitControls(camera, renderer.domElement);
+const controls = new OrbitControls(camera, document.body);
 
 
 
@@ -64,12 +62,30 @@ function animate() {
     torus.rotation.y += 0.005;
     torus.rotation.z += 0.01;
 
-    controll.update();
+    controls.update(); // required when enableDamping or autoRotate is used
 
     renderer.render(scene, camera);
 }
 
 animate();
+
+// add starts
+function addStar() {
+    const geometry = new THREE.SphereGeometry(0.25, 24, 24);
+    const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+    const star = new THREE.Mesh(geometry, material);
+
+    const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
+    
+    star.position.set(x, y, z);
+    scene.add(star);
+}
+
+Array(300).fill().forEach(addStar);
+
+// background image
+const spaceTexture = new THREE.TextureLoader().load('vite-project/icons/pexels-francesco-ungaro-998641.jpg');
+scene.background = spaceTexture;
 
 
 
