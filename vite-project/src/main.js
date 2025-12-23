@@ -84,10 +84,13 @@ function addStar() {
 Array(300).fill().forEach(addStar);
 
 // background image
-const spaceTexture = new THREE.TextureLoader().load('vite-project/icons/pexels-francesco-ungaro-998641.jpg');
+const spaceTexture = new THREE.TextureLoader().load('icons/pexels-francesco-ungaro-998641.jpg');
 scene.background = spaceTexture;
 
 
-
-
-
+const devtexture = new THREE.TextureLoader().load('icons/integration_instructions_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg');
+const dev = new THREE.Mesh(
+new THREE.BoxGeometry(3,3,3),
+new THREE.MeshBasicMaterial({ map: devtexture})
+)
+scene.add(dev);
