@@ -71,11 +71,13 @@ animate();
 
 // add starts
 function addStar() {
-    const geometry = new THREE.SphereGeometry(0.25, 24, 24);
-    const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
-    const star = new THREE.Mesh(geometry, material);
+    const starTexture = new THREE.TextureLoader().load('icons/integration_instructions_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg')
+    const star = new THREE.Mesh(
+        new THREE.BoxGeometry(5,5,5),
+        new THREE.MeshBasicMaterial({ map: starTexture})
+    );
 
-    const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
+    const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(200));
     
     star.position.set(x, y, z);
     scene.add(star);
@@ -95,14 +97,14 @@ new THREE.MeshBasicMaterial({ map: devtexture})
 )
 scene.add(dev);
 
-const moonTexture = new THREE.TextureLoader().load('icons/integration_instructions_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg');
+const moonTexture = new THREE.TextureLoader().load('icons/c27c5113-c349-4de3-9ed9-2f69dd86af5b.jpg');
 const  moon = new THREE.Mesh(
-    new THREE.BoxGeometry(3,3,3),
+    new THREE.SphereGeometry(10,10,10),
     new THREE.MeshStandardMaterial({map: moonTexture})
 )
 scene.add(moon);
 
-moon.position.z = 30;
+moon.position.z = 40;
 moon.position.setX(-10);
 
 
