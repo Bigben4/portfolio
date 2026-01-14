@@ -13,7 +13,10 @@
     <header class="navbar">
         <div class="logo">Ndille</div>
 
-        <nav class="menu">
+
+        <button class="menu-toggle" id="menuToggle"><img src="icons/menu_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Menu"></button>
+
+        <nav class="menu" id="menuid">
             <ul>
                 <li class="home"s><a  href="index.html">Home</a></li>
                 <li><a href="#">About</a></li>
@@ -21,11 +24,14 @@
                 <li><a href="#">Contact</a></li> 
             </ul>
         </nav>
+
     </header>
+    
     <section class="main">
+
         <div class="textbox">
             <h1>My name is <div class="name"> Ndille Enume Time,</div></h1>
-            <h2 class="title">I am a <span></span></h2>
+            <h2 class="title"> I am a <span></span></h2>
             <p class="text"> 
                 Lorem ipsum dolor sit amet consectetur,
                 Lorem ipsum dolor sit amet, consectetur adipisicing 
@@ -42,12 +48,15 @@
             <button class="Contact-btn">Contact</button>
           </div>
         </div>
+
         <div class="pictures">
             <picture class="photo">
                 <img src="public/photos/IMG_0929.JPG" alt="profile photo">
             </picture>
         </div>
     </section>
+
+
 <!-- about me sections -->
     <section class="Aboutme">
 
@@ -56,7 +65,7 @@
       </div>
 
       <div class="introductions">
-        <title class="title">About Me</title>
+        <h1 class="title">About Me</h1>
             <p>
                Hi! i am Ndille Enume Time, i am a passionate web developer on a mission to create amazing digital experiences.
                  My journey in web development began in 2025, when I first dove into HTML, CSS, 
@@ -77,6 +86,41 @@
       </div>
     </section>
 
+    <section class="Projects">
+
+
+        <div class="Swiper-Container">
+
+          <div class="swiper">  
+           <div class="swiper-wrapper">
+
+             <div class="Swiper-slide">
+                <div class="slider-content"></div>
+            </div>
+             <div class="Swiper-slide">
+                <div class="slider-content"></div>
+            </div>
+            <div class="Swiper-slide">
+               <div class="slider-content"></div>
+            </div>
+            <div class="Swiper-slide">
+               <div class="slider-content"></div>
+            </div>
+
+           </div> 
+          </div>
+            <div class="swiper-button-prev">
+                <i class="bx bx-arrow-alt"></i>
+            </div>
+            <div class="swiper-button-next">
+                <i class="bx bx-right-arrow-alt"></i>
+            </div>
+        </div>   
+    
+    
+    </section>
+    
+      <script src="src/app.js"></script>
      <script type="module" src="/src/main.js"></script>
 </body>
 </html>
