@@ -28,15 +28,20 @@ canvas{
 .navbar{
     width:100vw;
     height:15vh;
-    background-color:transparent;
+    /* glass header: dark, slightly transparent to emphasize content below */
+    background: rgba(0,0,0,0.85);
+    -webkit-backdrop-filter: blur(8px) saturate(1.05);
+    backdrop-filter: blur(8px) saturate(1.05);
     display:flex;
     align-items: center;
     justify-content: space-between;
     border-radius:50px;
     padding:50px;
     position: fixed;
-    z-index:10;
-    border: 1px solid white;
+    z-index:9999;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    transition: background-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
 }
 
 
@@ -52,7 +57,7 @@ canvas{
 }
 
 .menu-toggle{
-    background-color:black;
+    background-color: transparent;
     border:none;
     width:50px;
     height:50px;
@@ -116,6 +121,10 @@ canvas{
     cursor: pointer;
     width:max-content;
     position: relative;
+}
+
+.menu a.active{
+    color: #00d4ff;
 }
 
 li a::after{
@@ -474,6 +483,35 @@ li a::after{
     box-shadow: 0 6px 20px rgba(0,0,0,0.6);
     text-align:center;
 }
+
+/* Projects backdrop and entrance animation to match Stack theme */
+.project-container::before{
+    content: '';
+    position: absolute;
+    inset: -18px;
+    z-index: -1;
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.72), rgba(0,0,0,0.86));
+    -webkit-backdrop-filter: blur(10px) saturate(1.05);
+    backdrop-filter: blur(10px) saturate(1.05);
+    border: 1px solid rgba(255,255,255,0.03);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.7);
+}
+
+/* reuse stackIn animation for project cards */
+.project-card{
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+    animation: stackIn 560ms cubic-bezier(.22,.9,.36,1) forwards;
+}
+.swiper-wrapper .Swiper-slide:nth-child(1) .project-card{ animation-delay: 80ms; }
+.swiper-wrapper .Swiper-slide:nth-child(2) .project-card{ animation-delay: 160ms; }
+.swiper-wrapper .Swiper-slide:nth-child(3) .project-card{ animation-delay: 240ms; }
+.swiper-wrapper .Swiper-slide:nth-child(4) .project-card{ animation-delay: 320ms; }
+
+@media (max-width:768px){
+    .project-container::before{ inset: -10px; backdrop-filter: blur(6px); }
+}
 .project-card img{
     width:100%;
     height:320px;
@@ -677,6 +715,34 @@ li a::after{
     }
 }
 
+/* Footer styles */
+.site-footer{
+    width:100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0.95), rgba(3,3,3,0.98));
+    color:#cfcfcf;
+    padding:40px 4vw 18px;
+    box-shadow: 0 -6px 30px rgba(0,0,0,0.6);
+}
+.footer-container{
+    max-width:1100px;
+    margin:0 auto;
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+.footer-left .logo{ font-size:28px; font-weight:900; color:#fff; }
+.footer-desc{ color:#bfbfbf; max-width:420px; margin-top:8px; }
+.footer-links h4, .footer-social h4{ color:#fff; margin-bottom:8px; }
+.footer-links a{ color:#cfcfcf; text-decoration:none; display:block; margin-bottom:8px; }
+.social-icons a{ color:#cfcfcf; margin-right:10px; text-decoration:none; }
+.footer-bottom{ text-align:center; color:#8f8f8f; margin-top:18px; font-size:0.95rem; }
+
+@media (max-width:768px){
+    .footer-container{ flex-direction:column; gap:12px; }
+}
+
 
 /* About sections  */
 
@@ -777,6 +843,117 @@ li a::after{
 }
 .about-cta .btn.primary{ background: #fff; color:#000; }
 .about-cta .btn.secondary{ background: transparent; border:1px solid rgba(255,255,255,0.12); color:#fff; }
+
+/* Stack section */
+.Stack{
+    width:100%;
+    padding:6vh 4vw;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: transparent;
+}
+.stack-container{
+    width:100%;
+    max-width:1100px;
+    text-align:center;
+}
+.stack-title{
+    font-size:2rem;
+    color:#fff;
+    margin-bottom:6px;
+}
+.stack-sub{
+    color:#cfcfcf;
+    margin-bottom:18px;
+}
+.stack-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap:18px;
+    align-items:center;
+}
+.stack-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    padding:14px;
+    background: rgba(255,255,255,0.02);
+    border:1px solid rgba(255,255,255,0.04);
+    border-radius:12px;
+    transition: transform 300ms cubic-bezier(.22,.9,.36,1), box-shadow 300ms ease;
+}
+.stack-item:hover{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,0.6); }
+.stack-item img{
+    width:48px;
+    height:48px;
+    object-fit:contain;
+    filter: invert(1) brightness(1.1) saturate(0.2);
+}
+.stack-icon-fallback{
+    width:48px;
+    height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:8px;
+    background: rgba(255,255,255,0.06);
+    color:#fff;
+    font-weight:700;
+}
+.stack-name{ color:#e6e6e6; font-weight:700; font-size:0.95rem; }
+
+@media (max-width: 480px){
+    .stack-grid{ grid-template-columns: repeat(2, 1fr); gap:12px; }
+    .stack-item{ padding:10px; }
+}
+
+/* Stack backdrop and animations */
+.Stack{ position: relative; }
+.stack-container{ position: relative; }
+.stack-container::before{
+    /* glass backdrop behind the stack container */
+    content: '';
+    position: absolute;
+    inset: -18px;
+    z-index: -1;
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.72), rgba(0,0,0,0.86));
+    -webkit-backdrop-filter: blur(10px) saturate(1.05);
+    backdrop-filter: blur(10px) saturate(1.05);
+    border: 1px solid rgba(255,255,255,0.03);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.7);
+}
+
+@keyframes stackIn {
+    0% { opacity: 0; transform: translateY(12px) scale(0.98); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* staggered entrance for items */
+.stack-item{
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+    animation: stackIn 560ms cubic-bezier(.22,.9,.36,1) forwards;
+}
+.stack-grid .stack-item:nth-child(1){ animation-delay: 80ms; }
+.stack-grid .stack-item:nth-child(2){ animation-delay: 160ms; }
+.stack-grid .stack-item:nth-child(3){ animation-delay: 240ms; }
+.stack-grid .stack-item:nth-child(4){ animation-delay: 320ms; }
+.stack-grid .stack-item:nth-child(5){ animation-delay: 400ms; }
+.stack-grid .stack-item:nth-child(6){ animation-delay: 480ms; }
+.stack-grid .stack-item:nth-child(7){ animation-delay: 560ms; }
+
+/* title and subtitle entrance */
+@keyframes titleIn { from { opacity:0; transform: translateY(-6px);} to { opacity:1; transform: translateY(0);} }
+.stack-title{ opacity:0; transform: translateY(-6px); animation: titleIn 520ms ease-out 60ms forwards; }
+.stack-sub{ opacity:0; transform: translateY(-6px); animation: titleIn 520ms ease-out 120ms forwards; color: #cfcfcf; }
+
+/* reduce backdrop on small screens for performance/backdrop-filter support */
+@media (max-width:768px){
+    .stack-container::before{ inset: -10px; backdrop-filter: blur(6px); }
+}
 
 .Aboutme .introductions .title{
     font-size: 2.5em;

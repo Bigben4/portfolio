@@ -18,16 +18,16 @@
 
         <nav class="menu" id="menuid">
             <ul>
-                <li class="home"s><a  href="index.html">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact</a></li> 
+                <li class="home"><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
 
     </header>
     
-    <section class="main">
+    <section id="home" class="main">
 
         <div class="textbox">
             <div class="textbox-overlay" aria-hidden="true"></div>
@@ -59,7 +59,7 @@
 
 
 <!-- about me sections -->
-    <section class="Aboutme">
+    <section id="about" class="Aboutme">
 
       <div class="picture_of_me">
        <img src="public/photos/IMG_0929.JPG" alt="profile photo">
@@ -87,7 +87,45 @@
       </div>
     </section>
 
-    <section class="Projects project">
+        <!-- Tech stack section -->
+        <section id="stack" class="Stack">
+            <div class="stack-container">
+                <h2 class="stack-title">Tech Stack</h2>
+                <p class="stack-sub">Technologies and tools I work with</p>
+                <div class="stack-grid">
+                    <div class="stack-item">
+                        <img src="icons/html_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="HTML">
+                        <div class="stack-name">HTML</div>
+                    </div>
+                    <div class="stack-item">
+                        <img src="icons/css_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="CSS">
+                        <div class="stack-name">CSS</div>
+                    </div>
+                    <div class="stack-item">
+                        <img src="icons/javascript_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="JavaScript">
+                        <div class="stack-name">JavaScript</div>
+                    </div>
+                    <div class="stack-item">
+                        <img src="icons/pexels-francesco-ungaro-998641.jpg" alt="Node/Backend">
+                        <div class="stack-name">Node / Backend</div>
+                    </div>
+                    <div class="stack-item">
+                        <div class="stack-icon-fallback">PHP</div>
+                        <div class="stack-name">PHP</div>
+                    </div>
+                    <div class="stack-item">
+                        <img src="icons/design_services_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Design">
+                        <div class="stack-name">UI / Design</div>
+                    </div>
+                    <div class="stack-item">
+                        <div class="stack-icon-fallback">Git</div>
+                        <div class="stack-name">Git</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="Projects project">
 
         <div class="Swiper-Container project-container">
 
@@ -136,8 +174,32 @@
     
     </section>
     
-    <script src="src/carousel.js" defer></script>
+        <script src="src/carousel.js" defer></script>
     <script src="src/app.js"></script>
      <script type="module" src="/src/main.js"></script>
+    
+        <!-- Footer / Contact -->
+        <footer id="contact" class="site-footer">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <div class="logo">Ndille</div>
+                    <p class="footer-desc">Building clean, modern web experiences. Available for freelance and collaboration.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <a href="mailto:youremail@example.com">youremail@example.com</a>
+                    <p>Phone: +123 456 7890</p>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow</h4>
+                    <div class="social-icons">
+                        <a href="#">Twitter</a>
+                        <a href="#">GitHub</a>
+                        <a href="#">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">© <span id="year"></span> Ndille Enume Time. All rights reserved.</div>
+        </footer>
 </body>
 </html>
