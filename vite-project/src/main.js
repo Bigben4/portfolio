@@ -60,13 +60,25 @@ scene.add(moon);
 
 // Large background sphere (starfield) - if a generated texture is present it will add depth
 let bgSphere;
-loader.load('public/photos/space-bg.jpg', (tex) => {
+function addBgSphere(tex) {
     const bgMat = new THREE.MeshBasicMaterial({ map: tex, side: THREE.BackSide });
     const bgGeo = new THREE.SphereGeometry(1500, 32, 32);
     bgSphere = new THREE.Mesh(bgGeo, bgMat);
     scene.add(bgSphere);
+}
+
+// Try primary background texture, then a known backup image, then fall back to color.
+loader.load('public/photos/space-bg.jpg', (tex) => {
+    addBgSphere(tex);
 }, undefined, () => {
-    // on error: fallback to subtle star points (we still create points below)
+    // primary missing — try a backup that exists in the repo
+    loader.load('public/photos/IMG_0929.JPG', (tex2) => {
+        addBgSphere(tex2);
+    }, undefined, () => {
+        // final fallback: keep the star points and a subtle dark background
+        console.warn('No background texture found at public/photos/space-bg.jpg or IMG_0929.JPG; using color background and procedural stars.');
+        scene.background = new THREE.Color(0x06050a);
+    });
 });
 
 // Starfield points
