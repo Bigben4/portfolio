@@ -1,6 +1,9 @@
 import './style.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+// Import icon assets so Vite bundles them from the repo `icons/` folder
+import moonMapUrl from '../icons/c27c5113-c349-4de3-9ed9-2f69dd86af5b.jpg';
+import moonNormalUrl from '../icons/integration_instructions_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg';
 
 // Wrap initialization so code runs after DOM is ready and assets load correctly
 function init() {
@@ -57,8 +60,8 @@ function init() {
     const moonRadius = 18;
     const moonGeo = new THREE.SphereGeometry(moonRadius, 128, 128);
     // Use root-based paths so assets in `public/` are resolved correctly after build
-    const moonMap = loader.load('/icons/c27c5113-c349-4de3-9ed9-2f69dd86af5b.jpg');
-    const moonNormal = loader.load('/icons/integration_instructions_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg');
+    const moonMap = loader.load(moonMapUrl);
+    const moonNormal = loader.load(moonNormalUrl);
     const moonMat = new THREE.MeshStandardMaterial({
         map: moonMap,
         normalMap: moonNormal,
